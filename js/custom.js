@@ -29,6 +29,26 @@ $(window).on('load', function () {
     })
 });
 
+$(window).on('load', function () {
+    $('.filters_menu-food li').click(function () {
+        $('.filters_menu-food li').removeClass('active');
+        $(this).addClass('active');
+
+        var data = $(this).attr('data-filter-food');
+        $grid.isotope({
+            filter: data
+        })
+    });
+
+    var $grid = $(".grid-food").isotope({
+        itemSelector: ".all",
+        percentPosition: false,
+        masonry: {
+            columnWidth: ".all"
+        }
+    })
+});
+
 // nice select
 $(document).ready(function() {
     $('select').niceSelect();
